@@ -7,7 +7,13 @@ export default class ProductList extends React.Component {
     let products = [];
 
     for (let product of this.props.items) {
-      products.push(<Product item={product} selectHandler={this.props.selectHandler} />);
+      products.push(
+        <Product
+          key={product.code}
+          item={product}
+          selectHandler={this.props.selectHandler}
+        />
+      );
     }
 
     return <ul>{products}</ul>;

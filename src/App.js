@@ -3,7 +3,7 @@ import './App.css';
 import Catalog from './Catalog';
 import About from './About';
 import WineMakers from './WineMakers';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 
 export default class App extends Component {
   render() {
@@ -19,11 +19,11 @@ export default class App extends Component {
             </ul>
           </nav>
         </header>
-        <Switch>
-          <Route exact path='/' component={Catalog} />
-          <Route path='/winemakers' component={WineMakers} />
-          <Route path='/about' component={About} />
-        </Switch>
+        <Routes>
+          <Route path='/' element={<Catalog />} />
+          <Route path='/winemakers/*' element={<WineMakers />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
       </div>
     );
   }
